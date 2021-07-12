@@ -1,0 +1,5 @@
+도우너, douner@naver.com, 010-1111-4444, 경기도 수원시
+둘리, dooli@gmail.com, 010-1111-3333, 경기도 안양시
+홍길동, hong@gmail.com, 010-1111-1111, 서울시 강남구
+고길동, go@gmail.com, 010-1111-2222, 서울시 서초구
+마이콜, mickol@hanmail.net, 010-1111-1111, 인천광역시
