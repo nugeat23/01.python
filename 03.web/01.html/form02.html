@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <h3>Button 태그 사용</h3>
+        <button type="button" onclick="alert('클릭-1 사용')">클릭-1</button>
+        <h3>Input 태그 사용</h3>
+        <input type="button" onclick="alert('클릭-2 사용')" value="클릭-2">
+        <h3>Image 버튼 사용</h3>
+        <button type="submit" onclick="alert('클릭-3 사용')">
+            <img src="git.png" width='40'></button>
+    </form>
+        
+    <h3>관심 있는 학습 주제 한 가지를 선택하세요.</h3>
+    <form>
+        <select name="subjects">
+            <option value="1" selected>HTML5</option>
+            <option value="2">CSS3</option>
+            <option value="3">Javascript</option>
+            <option value="4">Jquery</option>
+        </select>
+        <p></p>
+        <input type="submit" value="제출">
+        <input type="reset" value="다시작성">
+    </form>
+
+    <form>
+        <h3>오늘 날짜 입력</h3>
+        Today : <input type="date" name="today">
+        <h3>프로젝트 수행 기간</h3>
+        From : <input type="date" name="from" min="2016-03-01" max="2016-12-31">
+        To : <input type="date" name="to" min="2022-03-01" max="2022-06-30">
+        <p></p>
+        <input type="submit" value="제출">
+        <input type="reset" value="다시작성">
+    </form>
+
+
+</body>
+</html>

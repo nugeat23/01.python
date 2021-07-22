@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>회원 인증 입력 양식</h2>
+    <fieldset>
+        <form method='POST'>
+        
+        <legend>로그인</legend>
+        <p>ID : <input type='text' name='ID' size='15' required></p>
+        <p>PW : <input type='password' name='psw' size='15' placeholder='비밀번호' required></p>
+
+        <br/>
+        <textarea rows='5' cols='50'>디폴트 문자열</textarea>
+        <br/>
+
+
+        <input type='submit' value="전송">
+        <input type='reset' value="다시 작성">
+        
+        </form>
+
+        <form>
+        <h3>당신의 성별은 무엇입니까?</h3>
+        <input type="radio" name="sex" value="male" id='male' checked><label for='male'>남자</label>
+        <input type="radio" name="sex" value="female" id='female'><label for='female'>여자</label>
+        
+        <p></p>
+        
+        <h3>당신은 몇 학년입니까?</h3>
+
+        <label><input type="radio" name="year" value="1" checked>1학년</label>
+        <label><input type="radio" name="year" value="2">2학년</label>
+        <label><input type="radio" name="year" value="3">3학년</label>
+        <label><input type="radio" name="year" value="4">4학년</label>
+
+        <p></p>
+
+        <input type="submit" value="제출">
+        <input type="reset" value="다시작성">
+        </form>
+    </fieldset>
+
+    <form>
+        <h3>현재 관심을 가지고 있는 학습 주제는 무엇입니까?</h3>
+        <label><input type="checkbox" name="subject" value="HTML5" checked>HTML5</label>
+        <label><input type="checkbox" name="subject" value="CSS3">CSS3</label>
+        <label><input type="checkbox" name="subject" value="Javascript">Javascript</label>
+        <label><input type="checkbox" name="subject" value="Jquery">Jquery</label>
+        <p></p>
+        <input type="submit" value="제출">
+        <input type="reset" value="다시작성">
+    </form>
+        
+
+</body>
+</html>
