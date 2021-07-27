@@ -1,21 +1,35 @@
+{% extends 'base.html' %}
 
-<h1>{{name}} 안녕하세요.</h1>
+{% block title %}polls{% endblock  %}
 
-{% if latest_question_list%}
-    <ul>
-        {% for question in latest_question_list %}
+{% block content %}
 
-            <li>
-                <a href='/polls/{{question.id}}'>
+
+<h2>장고 어플리케이션틀</h2>
+    {% if latest_question_list%}
+        <ul>
+            {% for question in latest_question_list %}
+                
+                <a href='{% url 'polls:detail' question.id %}'>
+                <li>
+                    {% comment %} 
+
+                    파이썬 함수 호출 방식 
+                    url('polls:detail', question_id) 
+                    
+                    {% endcomment %}
+                    
                     {{question.question_text}}
+                    
+
+                </li>
                 </a>
+            {% endfor %}
 
-            </li>
+        </ul>
 
-        {% endfor %}
+    {% else %}
 
-    </ul>
+    {% endif %}
 
-{% else %}
-
-{% endif %}
+{% endblock  %}

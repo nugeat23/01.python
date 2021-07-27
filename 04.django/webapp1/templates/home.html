@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    장고 프로젝트 홈페이지
+{% endblock %}
+
+
+{% block content %}
+    <h2>장고 어플리케이션틀</h2>
+
+    <ul>
+        <li>
+            <a href='{% url 'polls:index' %}'>polls</a>
+        </li>
+    </ul>
+
+{% endblock %}

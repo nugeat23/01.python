@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'polls',
+    'books',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +56,13 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            # BASE_DIR: .../webapp1
+            Path.joinpath(BASE_DIR, 'templates')    # .../webapp1/templates    
+
+
+
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
