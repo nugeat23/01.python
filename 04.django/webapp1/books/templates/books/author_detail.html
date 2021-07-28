@@ -1,0 +1,12 @@
+{% extends 'base_books.html' %}
+
+{% block content %}
+
+<h1>{{ object.name }}</h1>
+<p> {{ object.salutation }} </p>
+<li>email: {{ object.email }}</li>
+
+<br><br>
+{% comment %} <a href = '{% url 'books:publisher_list' %}'>돌아가기</a> {% endcomment %}
+<a href='javascript:history.back()'>돌아가기</a>
+{% endblock  %}
