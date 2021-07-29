@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content-header %}
+
+    <h1 class='bg-primary'>Bookmark List</h1>
+
+{% endblock  %}
+
+{% block content %}
+
+<div>
+    {% comment %} <h1>Bookmark List</h1> {% endcomment %}
+
+    <ul>
+
+    {% for bookmark in object_list %}
+        <li>
+
+            <a href='{% url 'bookmark:detail' bookmark.id %}'>{{bookmark}}</a>
+
+        </li>
+
+    {% endfor %}
+
+    </ul>
+    {% if user.is_active %}
+    <a href='{% url 'bookmark:add' %}' class='btn btn-primary btn-sm'>
+    <i class='fas fa-edit'> 추가</i>
+    </a>
+    {% endif %}
+</div>
+
+{% endblock %}
