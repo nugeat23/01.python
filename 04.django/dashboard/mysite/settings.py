@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # 나의 앱
     'accounts',
     'bookmark',
+    'blog',
 
 ]
 

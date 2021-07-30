@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from bookmark.models import Bookmark
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-
+from accounts.views import OwnerOnlyMixin
 
 class BookmarkListView(ListView):
     model = Bookmark
@@ -22,3 +22,26 @@ class BookmarkCreateView(LoginRequiredMixin, CreateView):
         form.instance.owner = self.request.user # 로그인 사용자 정보
 
         return super().form_valid(form)     # 모델 인스턴스 저장
+
+
+class BookmarkChangeListView(LoginRequiredMixin, ListView): 
+    template_name = 'bookmark/bookmark_change_list.html' 
+
+    def get_queryset(self):
+
+        return Bookmark.objects.filter(owner=self.request.user)
+
+class BookmarkUpdateView(OwnerOnlyMixin, UpdateView): 
+
+    model = Bookmark 
+    fields = ['title', 'url'] # 폼 모델에 사용할 필드  폼 모델 자동 생성
+    success_url = reverse_lazy('bookmark:change') 
+
+class BookmarkDeleteView(OwnerOnlyMixin, DeleteView):
+
+    model = Bookmark 
+    success_url = reverse_lazy('bookmark:change')
+
+    def get(self, *args, **kwargs):
+        return self.post(*args, **kwargs)
+
