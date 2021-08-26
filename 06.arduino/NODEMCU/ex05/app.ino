@@ -57,10 +57,47 @@ void deserialize(String line) {
     com.print(0, msg.c_str());
     msg = String("T:") + temp + ", H:" + humi;
     com.print(1, msg.c_str());
+
+
 }
 
+String response(WiFiClient &client) {
 
+    int timeout = millis() + 5000;
+    while (client.available() == 0) {
 
+    if (timeout - millis() < 0) {
+    Serial.println(">>> Client Timeout !");
+    client.stop();
+    return "";
+
+        }
+    } 
+
+    bool isBody = false;
+    String body ="";
+
+    while(client.available()) {
+
+            String line = client.readStringUntil('\r');    // 1줄 읽기
+            line.trim();                                   // 공백 제거
+            if(line == "") {
+            isBody = true;
+            continue;
+            }
+
+        Serial.println(line);
+        if(isBody) {
+        body = line;                                   //json 문자열
+        break;
+            }
+        }
+
+        Serial.println();
+        Serial.println("closing connection");
+
+        return body;
+}
 
 void setup(){
 
@@ -70,6 +107,16 @@ void setup(){
 
 void loop(){
 
+    WiFiClient client;
+
+    if(request(client)) {
+
+    String body = response(client);
+    deserialize(body);
+
+    }
+    
+    delay(100000);
 
 
 }

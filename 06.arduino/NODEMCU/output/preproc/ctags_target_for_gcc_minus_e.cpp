@@ -1,10 +1,9 @@
-#include <Arduino.h>
-#line 1 "c:\\workspace\\06.arduino\\NodeMcu\\ex06\\app.ino"
+# 1 "c:\\workspace\\06.arduino\\NodeMcu\\ex06\\app.ino"
 
 
-#include <WifiMiniCom.h>
-#include <PubSubClient.h>
-#include <Led.h>
+# 4 "c:\\workspace\\06.arduino\\NodeMcu\\ex06\\app.ino" 2
+# 5 "c:\\workspace\\06.arduino\\NodeMcu\\ex06\\app.ino" 2
+# 6 "c:\\workspace\\06.arduino\\NodeMcu\\ex06\\app.ino" 2
 
 const char *ssid = "Campus7_Room4_2.4GHz";
 const char *password = "12345678";
@@ -18,37 +17,26 @@ Led led(BUILTIN_LED);
 
 int value = 0;
 
-#line 19 "c:\\workspace\\06.arduino\\NodeMcu\\ex06\\app.ino"
-void callback(char *topic, byte *payload, unsigned int length);
-#line 48 "c:\\workspace\\06.arduino\\NodeMcu\\ex06\\app.ino"
-void reconnect();
-#line 72 "c:\\workspace\\06.arduino\\NodeMcu\\ex06\\app.ino"
-void publish();
-#line 83 "c:\\workspace\\06.arduino\\NodeMcu\\ex06\\app.ino"
-void setup();
-#line 93 "c:\\workspace\\06.arduino\\NodeMcu\\ex06\\app.ino"
-void loop();
-#line 19 "c:\\workspace\\06.arduino\\NodeMcu\\ex06\\app.ino"
 void callback(char *topic, byte *payload, unsigned int length){
 
     char buf[128];
-    memcpy(buf, payload, length);   // length 는 NULL 데이터
+    memcpy(buf, payload, length); // length 는 NULL 데이터
     buf[length] = "\0";
 
-    Serial.print("Message arrived [");    
+    Serial.print("Message arrived [");
     Serial.print(topic);
     Serial.print("] ");
     Serial.println(buf);
 
     if (buf[0] =='1'){
 
-        led.setValue(LOW);
+        led.setValue(0x0);
 
     }
 
     else{
 
-        led.setValue(HIGH);
+        led.setValue(0x1);
 
     }
 
@@ -64,18 +52,18 @@ void reconnect(){
 
     Serial.print("Attempting MQTT connection...");
 
-    if (client.connect("ESP8266Client")) {          // 클라이언트 ID 중복 주의
+    if (client.connect("ESP8266Client")) { // 클라이언트 ID 중복 주의
 
     Serial.println("connected");
-    client.publish("outTopic", "hello world"); 
-    client.subscribe("inTopic");                    // subscribe할 토픽 등록
+    client.publish("outTopic", "hello world");
+    client.subscribe("inTopic"); // subscribe할 토픽 등록
 
     }
 
-    else {                                          // 연결실패한 경우 5초 후 재시도
+    else { // 연결실패한 경우 5초 후 재시도
     Serial.print("failed, rc=");
     Serial.print(client.state());
-    Serial.println(" try again in 5 seconds"); 
+    Serial.println(" try again in 5 seconds");
     delay(5000);
 
     }
@@ -114,4 +102,3 @@ void loop() {
     client.loop();
 
 }
-

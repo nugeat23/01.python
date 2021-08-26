@@ -1,5 +1,3 @@
-#include <Arduino.h>
-#line 1 "c:\\workspace\\06.arduino\\NodeMcu\\ex06\\app.ino"
 
 
 #include <WifiMiniCom.h>
@@ -18,17 +16,6 @@ Led led(BUILTIN_LED);
 
 int value = 0;
 
-#line 19 "c:\\workspace\\06.arduino\\NodeMcu\\ex06\\app.ino"
-void callback(char *topic, byte *payload, unsigned int length);
-#line 48 "c:\\workspace\\06.arduino\\NodeMcu\\ex06\\app.ino"
-void reconnect();
-#line 72 "c:\\workspace\\06.arduino\\NodeMcu\\ex06\\app.ino"
-void publish();
-#line 83 "c:\\workspace\\06.arduino\\NodeMcu\\ex06\\app.ino"
-void setup();
-#line 93 "c:\\workspace\\06.arduino\\NodeMcu\\ex06\\app.ino"
-void loop();
-#line 19 "c:\\workspace\\06.arduino\\NodeMcu\\ex06\\app.ino"
 void callback(char *topic, byte *payload, unsigned int length){
 
     char buf[128];
@@ -114,4 +101,3 @@ void loop() {
     client.loop();
 
 }
-
